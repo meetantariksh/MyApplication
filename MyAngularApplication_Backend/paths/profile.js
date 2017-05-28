@@ -14,4 +14,13 @@ router.get('/profile/:userId', function(req, res, next){
     });
 });
 
+router.get('/profile', function(req, res, next){
+    db.profile.find(function(err, profile){
+        if(err){
+            res.send(err);
+        }
+        res.json(profile);
+    });
+});
+
 module.exports = router;
